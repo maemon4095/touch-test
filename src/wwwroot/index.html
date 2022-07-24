@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="yew pwa trial" />
+  <meta name="theme-color" content="#8ed281" />
+
+  <link data-trunk rel="rust" href="../../Cargo.toml" />
+  <link data-trunk rel="copy-dir" href="./assets/" />
+  <link data-trunk rel="copy-file" href="./service_worker.js" />
+  <link data-trunk rel="copy-file" href="./manifest.json" />
+  <link rel="manifest" href="./manifest.json" />
+
+  <base data-trunk-public-url />
+
+  <script>
+    window.onload = () => {
+      'use strict'
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("./service_worker.js");
+      }
+    }
+  </script>
+  <title>Yew Trial</title>
+</head>
+
+</html>
